@@ -5,14 +5,27 @@ import { Component } from "@angular/core";
   template: `
     <div>
       <h1>Yo</h1>
-      <events-child #localVariable [event]="event1"></events-child>
-      <button (click)="localVariable.logFoo()">Log Something</button>
+      <events-child *ngFor="let event of event1" [event]="event"></events-child>
     </div>
   `
 })
 export class EventsAppComponent {
-  event1 = {
-    id: 1,
-    name: "Test"
-  };
+  event1 = [
+    {
+      id: 1,
+      name: "Test"
+    },
+    {
+      id: 2,
+      name: "Test 2"
+    },
+    {
+      id: 3,
+      name: "Test 3"
+    },
+    {
+      id: 4,
+      name: "Test 4"
+    }
+  ];
 }
