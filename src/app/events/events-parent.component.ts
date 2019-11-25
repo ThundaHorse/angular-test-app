@@ -28,4 +28,8 @@ export class EventsAppComponent {
       name: "Test 4"
     }
   ];
+  event2 = {
+    id: 1,
+    name: "Test 1"
+  };
 }
