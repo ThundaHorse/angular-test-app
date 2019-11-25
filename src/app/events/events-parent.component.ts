@@ -5,11 +5,7 @@ import { Component } from "@angular/core";
   template: `
     <div>
       <timer-app></timer-app>
-      <events-child
-        *ngFor="let event of event1"
-        [event]="event"
-        #localVar
-      ></events-child>
+      <events-child [event]="event1"></events-child>
     </div>
   `
 })
@@ -17,19 +13,23 @@ export class EventsAppComponent {
   event1 = [
     {
       id: 1,
-      name: "Test"
+      name: "Test",
+      quantity: 1
     },
     {
       id: 2,
-      name: "Test 2"
+      name: "Test 2",
+      quantity: 2
     },
     {
       id: 3,
-      name: "Test 3"
+      name: "Test 3",
+      quantity: 3
     },
     {
       id: 4,
-      name: "Test 4"
+      name: "Test 4",
+      quantity: 4
     }
   ];
   event2 = {
