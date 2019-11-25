@@ -3,13 +3,26 @@ import { Component } from "@angular/core";
 @Component({
   selector: "timer-app",
   template: `
-    <div>
+    <div class="timer-box">
+      <p>I'm a timer component</p>
+      <hr />
       <h1>{{ this.outputTime }}</h1>
       <button (click)="timer()">start</button>
       <button (click)="stop()">Stop</button>
       <button (click)="resetTimer()">Reset</button>
     </div>
-  `
+  `,
+  styles: [
+    `
+      .timer-box {
+        border-width: 5px;
+        border-color: black;
+        border-style: dotted solid;
+        padding: 10px 10px 10px 10px;
+        border-radius: 10px;
+      }
+    `
+  ]
 })
 export class TimerAppComponent {
   count = 0;
