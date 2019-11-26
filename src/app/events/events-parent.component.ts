@@ -7,7 +7,7 @@ import { ToastrService } from "../common/toastr.service";
     <div>
       <timer-app></timer-app>
       <div class="container">
-        <div *ngFor="let event of events" class="col-md-3">
+        <div *ngFor="let event of events" class="col-md-5">
           <events-child
             (click)="handleEventClick(event.name)"
             [event]="event"

@@ -1,22 +1,21 @@
 import { Component, Input } from "@angular/core";
-// import { EventService } from "./shared/event.service";
-// import { ToastrService } from "../common/toastr.service";
 
 @Component({
   selector: "events-child",
   template: `
     <hr />
-    <p>Parent component event ID: {{ event.id }}</p>
-    <p>Parent component event name: {{ event.name }}</p>
-
-    <li [ngClass]="getStyles(event)">{{ event.id }}: {{ event.name }}</li>
-    <div [ngSwitch]="oddOrEven(event?.quantity)">
-      <span *ngSwitchCase="'even'">I'm Even</span>
-      <span *ngSwitchCase="'odd'">I'm Odd</span>
-      <span *ngSwitchDefault>I'm Default</span>
+    <div class="container">
+      <p class="eventId" [routerLink]="['/events', event.id]">
+        Parent component event ID: {{ event.id }}
+      </p>
+      <p>Parent component event name: {{ event.name }}</p>
+      <li [ngClass]="getStyles(event)">{{ event.id }}: {{ event.name }}</li>
+      <div [ngSwitch]="oddOrEven(event?.quantity)">
+        <span *ngSwitchCase="'even'">I'm Even</span>
+        <span *ngSwitchCase="'odd'">I'm Odd</span>
+        <span *ngSwitchDefault>I'm Default</span>
+      </div>
     </div>
-
-    <hr />
   `,
   styles: [
     `
@@ -25,6 +24,18 @@ import { Component, Input } from "@angular/core";
       }
       .red {
         color: red;
+      }
+      p.eventId {
+        cursor: pointer;
+      }
+      p.eventId:hover {
+        color: blue;
+      }
+      li {
+        cursor: pointer;
+      }
+      li:hover {
+        color: yellow;
       }
     `
   ]
