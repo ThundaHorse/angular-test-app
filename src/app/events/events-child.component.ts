@@ -9,10 +9,13 @@ import { Component, Input } from "@angular/core";
         Parent component event ID: {{ event.id }}
       </p>
       <p>Parent component event name: {{ event.name }}</p>
-      <li [ngClass]="getStyles(event)">{{ event.id }}: {{ event.name }}</li>
       <div [ngSwitch]="oddOrEven(event?.quantity)">
-        <span *ngSwitchCase="'even'">I'm Even</span>
-        <span *ngSwitchCase="'odd'">I'm Odd</span>
+        <span *ngSwitchCase="'even'" [ngClass]="getStyles(event)"
+          >My ID is Even</span
+        >
+        <span *ngSwitchCase="'odd'" [ngClass]="getStyles(event)"
+          >My ID is Odd</span
+        >
         <span *ngSwitchDefault>I'm Default</span>
       </div>
     </div>
