@@ -3,7 +3,6 @@ import { EventService } from "./shared/event.service";
 import { ToastrService } from "../common/toastr.service";
 
 @Component({
-  selector: "events-parent",
   template: `
     <div>
       <timer-app></timer-app>
