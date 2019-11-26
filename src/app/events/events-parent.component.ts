@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { EventService } from "./shared/event.service";
+import { EventService } from "../common/event.service";
 import { ToastrService } from "../common/toastr.service";
 
 @Component({
@@ -7,6 +7,8 @@ import { ToastrService } from "../common/toastr.service";
     <div>
       <timer-app></timer-app>
       <div class="container">
+        <a [routerLink]="['/events/new']">New</a>
+        <br />
         <div *ngFor="let event of events" class="col-md-5">
           <events-child
             (click)="handleEventClick(event.name)"
@@ -15,7 +17,14 @@ import { ToastrService } from "../common/toastr.service";
         </div>
       </div>
     </div>
-  `
+  `,
+  styles: [
+    `
+      a {
+        float: left;
+      }
+    `
+  ]
 })
 export class EventsAppComponent implements OnInit {
   events: any[];
