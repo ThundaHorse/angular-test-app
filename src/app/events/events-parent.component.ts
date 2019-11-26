@@ -1,39 +1,34 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { EventService } from "./shared/event.service";
+import { ToastrService } from "../common/toastr.service";
 
 @Component({
   selector: "events-parent",
   template: `
     <div>
       <timer-app></timer-app>
-      <events-child [event]="event1"></events-child>
+      <div *ngFor="let event of events" class="col-md-5">
+        <events-child
+          (click)="handleEventClick(event.name)"
+          [event]="event"
+        ></events-child>
+      </div>
     </div>
   `
 })
-export class EventsAppComponent {
-  event1 = [
-    {
-      id: 1,
-      name: "Test",
-      quantity: 1
-    },
-    {
-      id: 2,
-      name: "Test 2",
-      quantity: 2
-    },
-    {
-      id: 3,
-      name: "Test 3",
-      quantity: 3
-    },
-    {
-      id: 4,
-      name: "Test 4",
-      quantity: 4
-    }
-  ];
-  event2 = {
-    id: 1,
-    name: "Test 1"
-  };
+export class EventsAppComponent implements OnInit {
+  events: any[];
+
+  constructor(
+    private eventService: EventService,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit() {
+    this.events = this.eventService.getEvents();
+  }
+
+  handleEventClick(eventName) {
+    this.toastr.success(eventName);
+  }
 }

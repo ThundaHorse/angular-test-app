@@ -3,13 +3,21 @@ import { Component } from "@angular/core";
 @Component({
   selector: "timer-app",
   template: `
-    <div class="timer-box">
-      <p>I'm a timer component</p>
-      <hr />
-      <h1>{{ this.outputTime }}</h1>
-      <button (click)="timer()">start</button>
-      <button (click)="stop()">Stop</button>
-      <button (click)="resetTimer()">Reset</button>
+    <div class="container">
+      <div class="timer-box">
+        <p>I'm a timer component</p>
+        <hr />
+        <h1>{{ this.outputTime }}</h1>
+        <button class="btn btn-md btn-round btn-success" (click)="timer()">
+          start
+        </button>
+        <button class="btn btn-md btn-round btn-danger" (click)="stop()">
+          Stop
+        </button>
+        <button class="btn btn-md btn-round btn-warning" (click)="resetTimer()">
+          Reset
+        </button>
+      </div>
     </div>
   `,
   styles: [
