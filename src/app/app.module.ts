@@ -15,6 +15,7 @@ import { ToastrService } from "./common/toastr.service";
 import { EventRouteActivator } from "./events/event-page/event-route-activator.service";
 
 import { routes } from "./routes";
+import { AuthService } from "./user/auth.service";
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes)],
@@ -32,7 +33,8 @@ import { routes } from "./routes";
     EventService,
     ToastrService,
     EventRouteActivator,
-    { provide: "canDeactivateCreate", useValue: checkDirtyState }
+    { provide: "canDeactivateCreate", useValue: checkDirtyState },
+    AuthService
   ]
 })
 export class AppModule {}

@@ -34,10 +34,10 @@ import { Component, Input } from "@angular/core";
       p.eventId:hover {
         color: blue;
       }
-      li {
+      span {
         cursor: pointer;
       }
-      li:hover {
+      span:hover {
         color: yellow;
       }
     `
